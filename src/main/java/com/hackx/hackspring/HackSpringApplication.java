@@ -1,4 +1,4 @@
-package com.hackx;
+package com.hackx.hackspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
