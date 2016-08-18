@@ -24,18 +24,19 @@
     </properties>
 
     <dependencies>
-        <!-- The typical dependencies for a web application -->
-        <dependency>
+
+        <!-- The Spring Dependencies Start -->
+        <dependency> <!-- The typical dependencies for a web application -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- The typical dependencies for a test framework -->
-        <dependency>
+        <dependency> <!-- The typical dependencies for a test framework -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- The Spring Dependencies End -->
     </dependencies>
 
     <build>
