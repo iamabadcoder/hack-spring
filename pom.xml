@@ -40,8 +40,6 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis.spring.boot.starter}</version>
         </dependency>
-        <!-- The Spring Dependencies End -->
-
         <!-- The DataSource Dependencies Start -->
         <dependency>
             <groupId>mysql</groupId>
@@ -49,6 +47,24 @@
             <version>${mysql.connector}</version>
         </dependency>
         <!-- The DataSource Dependencies End -->
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.4</version>
+        </dependency>
     </dependencies>
 
     <build>
