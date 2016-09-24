@@ -1,6 +1,7 @@
 package com.hackx.hackspring.web.member;
 
 import com.hackx.hackspring.service.member.MemberService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MemberController {
 
+    private static Logger logger = Logger.getLogger(MemberController.class);
+
     @Autowired
     MemberService memberService;
 
     @RequestMapping("/")
     String home() {
+        logger.error("Error Log Test!");
         return memberService.queryById(1L).toString();
     }
 }

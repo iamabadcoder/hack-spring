@@ -30,6 +30,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency> <!-- The typical dependencies for a template engine -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-velocity</artifactId>
+        </dependency>
+        <dependency> <!-- The typical dependencies for logging(logback) -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+
         <dependency> <!-- The typical dependencies for a test framework -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -40,6 +50,7 @@
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis.spring.boot.starter}</version>
         </dependency>
+        <!-- The Spring Dependencies End -->
         <!-- The DataSource Dependencies Start -->
         <dependency>
             <groupId>mysql</groupId>
@@ -59,6 +70,7 @@
             <artifactId>jsr305</artifactId>
             <version>3.0.0</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/cglib/cglib -->
         <dependency>
             <groupId>cglib</groupId>
