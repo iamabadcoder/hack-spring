@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hackx.hackspring.mapper.linkedhome.LiCaiProductMapper">
+
+    <resultMap id="LiCaiProductDOResult" type="LiCaiProductDO">
+        <result property="id" column="id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="productId" column="product_id"/>
+        <result property="name" column="name"/>
+        <result property="kaiShouShiJian" column="kai_shou_shi_jian"/>
+        <result property="yuQiNianHuaShouYiLv" column="yu_qi_nian_hua_shou_yi_lv"/>
+        <result property="xiangMuQiXian" column="xiang_mu_qi_xian"/>
+        <result property="xiangMuGuiMo" column="xiang_mu_gui_mo"/>
+        <result property="xiangMuShouWanLiShi" column="xiang_mu_shou_wan_li_shi"/>
+        <result property="touBiaoBiShu" column="tou_biao_bi_shu"/>
+    </resultMap>
+
+    <sql id="LiCaiProductDOFields">
+        id, gmt_create, gmt_modified, product_id, name, kai_shou_shi_jian, yu_qi_nian_hua_shou_yi_lv,
+         xiang_mu_qi_xian, xiang_mu_gui_mo, xiang_mu_shou_wan_li_shi, tou_biao_bi_shu
+    </sql>
+
+    <insert id="insert" parameterType="LiCaiProductDO" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        li_cai_product(gmt_create, gmt_modified, product_id, name, kai_shou_shi_jian, yu_qi_nian_hua_shou_yi_lv,
+        xiang_mu_qi_xian, xiang_mu_gui_mo, xiang_mu_shou_wan_li_shi, tou_biao_bi_shu)
+        values (now(), now(), #{productId}, #{name}, #{kaiShouShiJian},
+        #{yuQiNianHuaShouYiLv}, #{xiangMuQiXian}, #{xiangMuGuiMo}, #{xiangMuShouWanLiShi}, #{touBiaoBiShu})
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete from li_cai_product where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="LiCaiProductDO">
+        UPDATE li_cai_product
+        <set>
+            gmt_modified = now(),
+            <if test="productId != null">
+                product_id = #{productId},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="kaiShouShiJian != null">
+                kai_shou_shi_jian = #{kaiShouShiJian},
+            </if>
+            <if test="yuQiNianHuaShouYiLv != null">
+                yu_qi_nian_hua_shou_yi_lv = #{yuQiNianHuaShouYiLv},
+            </if>
+            <if test="xiangMuQiXian != null">
+                xiang_mu_qi_xian = #{xiangMuQiXian},
+            </if>
+            <if test="xiangMuGuiMo != null">
+                xiang_mu_gui_mo = #{xiangMuGuiMo},
+            </if>
+            <if test="xiangMuShouWanLiShi != null">
+                xiang_mu_shou_wan_li_shi = #{xiangMuShouWanLiShi},
+            </if>
+            <if test="touBiaoBiShu != null">
+                tou_biao_bi_shu = #{touBiaoBiShu},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="queryById" resultMap="LiCaiProductDOResult" parameterType="java.lang.Long">
+        SELECT
+        <include refid="LiCaiProductDOFields"/>
+        FROM li_cai_product
+        WHERE id=#{id}
+    </select>
+</mapper>

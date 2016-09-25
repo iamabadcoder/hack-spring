@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hackx.hackspring.mapper.linkedhome.PurchaseRecordsMapper">
+
+    <resultMap id="PurchaseRecordsDOResult" type="PurchaseRecordsDO">
+        <result property="id" column="id"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="productId" column="product_id"/>
+        <result property="touZiYongHu" column="tou_zi_yong_hu"/>
+        <result property="touZiZiJin" column="tou_zi_zi_jin"/>
+        <result property="touZiShiJian" column="tou_zi_shi_jian"/>
+
+    </resultMap>
+
+    <sql id="PurchaseRecordsDOFields">
+        id, gmt_create, gmt_modified, product_id, tou_zi_yong_hu, tou_zi_zi_jin, tou_zi_shi_jian
+    </sql>
+
+    <insert id="insert" parameterType="PurchaseRecordsDO" useGeneratedKeys="true" keyProperty="id">
+        insert into
+        purchase_records(gmt_create, gmt_modified, product_id, tou_zi_yong_hu, tou_zi_zi_jin, tou_zi_shi_jian)
+        values (now(), now(), #{productId}, #{touZiYongHu}, #{touZiZiJin}, #{touZiShiJian})
+    </insert>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete from purchase_records where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="PurchaseRecordsDO">
+        UPDATE purchase_records
+        <set>
+            gmt_modified = now(),
+            <if test="productId != null">
+                product_id = #{productId},
+            </if>
+            <if test="touZiYongHu != null">
+                tou_zi_yong_hu = #{touZiYongHu},
+            </if>
+            <if test="touZiZiJin != null">
+                tou_zi_zi_jin = #{touZiZiJin},
+            </if>
+            <if test="touZiShiJian != null">
+                tou_zi_shi_jian = #{touZiShiJian},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="queryById" resultMap="PurchaseRecordsDOResult" parameterType="java.lang.Long">
+        SELECT
+        <include refid="PurchaseRecordsDOFields"/>
+        FROM purchase_records
+        WHERE id=#{id}
+    </select>
+</mapper>

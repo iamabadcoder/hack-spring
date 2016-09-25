@@ -19,7 +19,6 @@ public class MemberController {
 
     @RequestMapping("/")
     String home() {
-        logger.error("Error Log Test!");
         return memberService.queryById(1L).toString();
     }
 }
