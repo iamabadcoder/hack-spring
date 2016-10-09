@@ -20,7 +20,7 @@
 
     <sql id="LiCaiProductDOFields">
         id, gmt_create, gmt_modified, product_id, name, kai_shou_shi_jian, yu_qi_nian_hua_shou_yi_lv,
-         xiang_mu_qi_xian, xiang_mu_gui_mo, xiang_mu_shou_wan_li_shi, tou_biao_bi_shu
+        xiang_mu_qi_xian, xiang_mu_gui_mo, xiang_mu_shou_wan_li_shi, tou_biao_bi_shu
     </sql>
 
     <insert id="insert" parameterType="LiCaiProductDO" useGeneratedKeys="true" keyProperty="id">
